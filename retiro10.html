@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retiro 10% – AFP AIEP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #003157;">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #b40000;">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#"><img src="https://intranet.aiep.cl/Content/images/html/logo-aiep-header-nuevo.png" alt="" width="128" height="48"></a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <!-- <li class="nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="#">INICIO</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link text-light" href="#">INCORPÓRATE A AFP AIEP</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="#">PRODUCTOS DE AHORRO</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="#">TRÁMITES Y HERRAMIENTAS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="#">CENTRO DE AYUDA</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="admin.html">ADMINISTRACIÓN</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2 bg-light" type="search" placeholder="¿Qué buscas?" aria-label="Search">
+              <button class="btn btn-outline-danger" type="submit">Buscar</button>
+            </form>
+          </div>
+        </div>
+    </nav>
+    <div class="container">
+      <div class="section mt-3">
+        <button type="button" class="btn btn-danger" id="dolar">Dólar</button>
+        <button type="button" class="btn btn-danger" id="uf">UF</button>
+      </div>
+      <div class="section mt-3">
+        <ul id="resultado"></ul>
+      </div>
+    </div>
+    <div class="container" style="background-color: #f2f7fa;">
+      <div class="row mt-3">
+        <h1 class="text-center mb-5 mt-3">Solicitud de retiro 10%</h1>
+        <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 mb-2">
+          <label for="" class="form-label">Ingresa tu RUT(*)</label>
+          <input onkeypress="return soloNumeros(event)" type="text" class="form-control" maxlength="12" placeholder="Ej: 11111111-1" id="rut">
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 mb-2">
+          <label for="" class="form-label">Número de documento(*)</label>
+          <input onkeypress="return soloNumeros(event)" type="text" class="form-control" maxlength="10" placeholder="Escribe aquí" id="ndocumento">
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 mb-2">
+          <label for="" class="form-label">Confirma Nro. documento(*)</label>
+          <input onkeypress="return soloNumeros(event)" type="text" class="form-control" maxlength="10" placeholder="Escribe aquí" id="ndocumento2">
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 mb-2">
+          <label for="" class="form-label">Nombre(*)</label>
+          <input type="text" class="form-control" maxlength="30" placeholder="Escribe aquí" id="nombre">
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 mb-2">
+          <label for="" class="form-label">Apellidos(*)</label>
+          <input type="text" class="form-control" maxlength="80" placeholder="Escribe aquí" id="apellidos">
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 mb-2">
+          <label for="" class="form-label">Correo electrónico(*)</label>
+          <input type="email" class="form-control" placeholder="Ej: tunombre@correo.cl" id="email">
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 mb-2">
+          <label for="" class="form-label">Teléfono(*)</label>
+          <input onkeypress="return soloNumeros(event)" type="text" class="form-control" maxlength="9" placeholder="Ej: 911111111" id="telefono">
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 mb-2">
+          <label for="" class="form-label">Fecha de nacimiento(*)</label>
+          <input type="date" class="form-control" placeholder="Ej: dd/mm/aa" id="fnacimiento">
+        </div>
+        <label for="" class="form-label">Sexo</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="masculino">
+          <label class="form-check-label" for="flexRadioDefault1">Masculino</label>
+        </div>
+        <div class="form-check mb-2">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="femenino">
+          <label class="form-check-label" for="flexRadioDefault1">Femenino</label>
+        </div>
+      </div>
+      <div class="custom-control custom-checkbox">
+        <input type="checkbox" name="terminos" id="terminos"> Acepto los términos y condiciones. (*)
+      </div>
+      <div class="row justify-content-end">
+        <div class="col-3">
+            <button onclick="guardar()" type="button" class="btn btn-success">ENVIAR SOLICITUD</button>
+        </div>
+        <label for="" class="form-label">(*) campos son obligatorios.</label>
+      </div>
+    </div>
+    </div>
+    <script src="./js/solicitudes.js"></script>
+</body>
+</html>
